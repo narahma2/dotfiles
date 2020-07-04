@@ -1,5 +1,9 @@
 # dotfiles
 
+https://dinhtungdu.github.io/synchronizing-vim-8-configuration/
+
+https://shapeshed.com/vim-packages/
+
 Synchronizing vim 8 config and plugins with git submodule
 
 A vim user may change the config or plugins every day, and I was no exception. My current configuration is completely different from the first day I use vim. Because my current config takes me so much time and effort to achieve, it’s wise to keep it safe.
