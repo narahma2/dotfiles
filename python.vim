@@ -15,6 +15,13 @@ set showtabline=2
 " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set noshowmode 
 
+" Set the leader key
+let mapleader=","
+
+" Buffer navigation
+" <Leader>b to list buffers, input # and <CR> to switch
+nnoremap <Leader>b :ls<CR>:b<Space>
+
 " Python syntax
 let python_highlight_all=1
 syntax on
@@ -46,6 +53,10 @@ set clipboard=unnamed
 " To replace the  search, do :%s/<C-R>//bar/gcI (global, confirm, case-sens.)
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
+" Set highlight coloring and incremental highlighting
+set hlsearch
+set incsearch
+
 " enable mouse support for scrolling
 set mouse=a
 set ttyfast
@@ -65,10 +76,15 @@ packadd! indentLine
 packadd! vim-flake8
 packadd! vim-fugitive
 packadd! vim-signify
+packadd! tagbar
 
 " scrooloose/nerdtree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.sublime$']
+
+" yuttie/comfortable-motion.vim
+nnoremap <silent> <Down> :call comfortable_motion#flick(50)<CR>
+nnoremap <silent> <Up> :call comfortable_motion#flick(-50)<CR>
 
 " tmhedberg/SimpylFold
 set foldmethod=indent
@@ -78,7 +94,14 @@ nnoremap <space> za
 
 " ycm-core/YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g	:YcmCompleter GoToDefinitionElseDeclaraction<CR>
+map <leader>g	:YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" yggdroot/indentline
+let g:indentLine_setColors=1
+
+" vim-flake8
+" Call PEP8 check on file save
+" autocmd BufWritePost *.py call Flake8()
 
 " tpope/vim-fugitive; mhinz/vim-signify; jreybert/vimagit
 set updatetime=100 " shorten vim update time for gitgutter signs to appear
@@ -87,9 +110,5 @@ highlight SignifySignAdd ctermfg=black ctermbg=green
 highlight SignifySignDelete ctermfg=black ctermbg=red
 highlight SignifySignChange ctermfg=black ctermbg=yellow
 
-" yuttie/comfortable-motion.vim
-nnoremap <silent> <Down> :call comfortable_motion#flick(50)<CR>
-nnoremap <silent> <Up> :call comfortable_motion#flick(-50)<CR>
-
-" yggdroot/indentline
-let g:indentLine_setColors = 1
+" tagbar
+nmap <Leader>t :TagbarToggle<CR>
