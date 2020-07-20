@@ -22,3 +22,9 @@
 [submodule "pack/plugins/opt/indentLine"]
 	path = pack/plugins/opt/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
+[submodule "pack/plugins/opt/tagbar"]
+	path = pack/plugins/opt/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "pack/plugins/start/sneak"]
+	path = pack/plugins/start/sneak
+	url = https://github.com/justinmk/vim-sneak.git
