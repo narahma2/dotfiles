@@ -16,3 +16,6 @@
 [submodule "vim/pack/vendor/start/ctrlp.vim"]
 	path = vim/pack/vendor/start/ctrlp.vim
 	url = git@github.com:kien/ctrlp.vim.git
+[submodule "vim/pack/vendor/start/tmuxline.vim"]
+	path = vim/pack/vendor/start/tmuxline.vim
+	url = git@github.com:edkolev/tmuxline.vim.git
