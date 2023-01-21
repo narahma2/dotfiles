@@ -1,0 +1,37 @@
+" using iceberg theem
+" colorscheme iceberg
+
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" set syntax highlighting
+syntax on
+
+" set line numbering
+set nu
+
+" NERDTree
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+set backspace=indent,eol,start
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+" PEP8
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set colorcolumn=80 |
+    \ set ruler |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
