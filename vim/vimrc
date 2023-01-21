@@ -2,19 +2,30 @@
 set runtimepath=~/.dotfiles/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.dotfiles/vim/after
 set packpath=~/.dotfiles/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.dotfiles/vim/after
 
-" using iceberg theem
-colorscheme iceberg
-set background=dark
-
+""""""""
+" Colors
+""""""""
 " command for background toggling
 command ToggleBG if &background=='light' | set background=dark | :AirlineTheme iceberg
                  \ | else | set background=light | :AirlineTheme iceberg
                  \ | endif
 
+" hi SpecialKey hard to see in iceberg...
+
 " enable true color (24-bit)
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" using iceberg theem
+colorscheme iceberg
+set background=dark
+
+"""""""""
+" General
+"""""""""
+" faster update (also means more *.swp file updates!)
+set updatetime=100
 
 " set syntax highlighting
 syntax on
