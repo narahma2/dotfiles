@@ -3,8 +3,15 @@ set runtimepath=~/.dotfiles/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/
 set packpath=~/.dotfiles/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.dotfiles/vim/after
 
 " using iceberg theem
-" colorscheme iceberg
+colorscheme iceberg
+set background=dark
 
+" command for background toggling
+command ToggleBG if &background=='light' | set background=dark | :AirlineTheme iceberg
+                 \ | else | set background=light | :AirlineTheme iceberg
+                 \ | endif
+
+" enable true color (24-bit)
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -15,18 +22,11 @@ syntax on
 " set line numbering
 set nu
 
-" NERDTree
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+" highlighting
+set hlsearch
+set incsearch
 
 set backspace=indent,eol,start
-
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-
-" Enable folding with the spacebar
-nnoremap <space> za
 
 " PEP8
 au BufNewFile,BufRead *.py
@@ -39,3 +39,29 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
+
+""""""""""
+" NERDTree
+""""""""""
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+""""""""""""
+" SimpylFold
+""""""""""""
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+"""""""""
+" Airline
+"""""""""
+let g:airline_theme='iceberg'
+let g:airline_powerline_fonts = 1
+
+" By default airline shows empty sections, let's turn off the red triangle
+" which is the error block (for white spaces, etc.) if it's empty
+let g:airline_skip_empty_sections = 1
