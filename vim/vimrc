@@ -1,3 +1,7 @@
+" update paths
+set runtimepath=~/.dotfiles/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.dotfiles/vim/after
+set packpath=~/.dotfiles/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.dotfiles/vim/after
+
 " using iceberg theem
 " colorscheme iceberg
 
