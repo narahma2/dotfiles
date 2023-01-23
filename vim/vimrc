@@ -57,6 +57,10 @@ au BufNewFile,BufRead *.py
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
+" ignore these files
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
 """"""""""""
 " SimpylFold
 """"""""""""
@@ -76,3 +80,22 @@ let g:airline_powerline_fonts = 1
 " By default airline shows empty sections, let's turn off the red triangle
 " which is the error block (for white spaces, etc.) if it's empty
 let g:airline_skip_empty_sections = 1
+
+""""""""
+" Ctrl-P
+""""""""
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+" working directory to search under:
+" c: the directory of the current file
+" r: the nearest ancestor that contains one of: .git .hg .svn .bzr _darcs
+" a: like c, but only if CWD outside of CtrlP is not a direct ancestor of the directory of the current file
+let g:ctrp_working_path_mode = 'ra'
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|ipynb_checkpoints)$',
+  \ 'file': '\v\.(exe|so|dll|ipynb)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
