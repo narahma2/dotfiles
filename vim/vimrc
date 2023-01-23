@@ -1,6 +1,6 @@
 " update paths
-set runtimepath=~/.dotfiles/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.dotfiles/vim/after
-set packpath=~/.dotfiles/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.dotfiles/vim/after
+set runtimepath=$DOTFILES/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$DOTFILES/vim/after
+set packpath=$DOTFILES/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$DOTFILES/vim/after
 
 """"""""
 " Colors
