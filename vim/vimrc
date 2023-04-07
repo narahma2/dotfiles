@@ -38,6 +38,7 @@ set hlsearch
 set incsearch
 
 set backspace=indent,eol,start
+set clipboard=exclude:.*
 
 " PEP8
 au BufNewFile,BufRead *.py
@@ -91,7 +92,7 @@ let g:ctrlp_cmd = 'CtrlP'
 " c: the directory of the current file
 " r: the nearest ancestor that contains one of: .git .hg .svn .bzr _darcs
 " a: like c, but only if CWD outside of CtrlP is not a direct ancestor of the directory of the current file
-let g:ctrp_working_path_mode = 'ra'
+let g:ctrp_working_path_mode = 'r'
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
