@@ -1,0 +1,30 @@
+syntax on
+
+set noerrorbells
+set textwidth=100
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set linebreak
+set number
+set showmatch
+set showbreak=+++
+set smartcase
+set noswapfile
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set spell
+set showmatch
+set confirm
+set ruler
+set autochdir
+set autowriteall
+set undolevels=1000
+set backspace=indent,eol,start
+
+" better linewrapping for writing setup
+set wrap
+nnoremap <F5> :set linebreak<CR>
+nnoremap <C-F5> :set nolinebreak<CR>

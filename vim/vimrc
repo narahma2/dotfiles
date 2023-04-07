@@ -38,6 +38,7 @@ set hlsearch
 set incsearch
 
 set backspace=indent,eol,start
+set clipboard=exclude:.*
 
 " PEP8
 au BufNewFile,BufRead *.py
