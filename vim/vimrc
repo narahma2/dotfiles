@@ -85,12 +85,13 @@ let g:airline_skip_empty_sections = 1
 " Ctrl-P
 """"""""
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlPBuffer'
 
 " working directory to search under:
 " c: the directory of the current file
 " r: the nearest ancestor that contains one of: .git .hg .svn .bzr _darcs
-" a: like c, but only if CWD outside of CtrlP is not a direct ancestor of the directory of the current file
+" a: like c, but only if CWD outside of CtrlP is not a direct ancestor of the
+"    directory of the current file
 let g:ctrp_working_path_mode = 'ra'
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
