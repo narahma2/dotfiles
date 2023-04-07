@@ -19,3 +19,6 @@
 [submodule "vim/pack/vendor/start/tmuxline.vim"]
 	path = vim/pack/vendor/start/tmuxline.vim
 	url = git@github.com:edkolev/tmuxline.vim.git
+[submodule "vim/pack/vendor/start/vim-tmux-navigator"]
+	path = vim/pack/vendor/start/vim-tmux-navigator
+	url = git@github.com:christoomey/vim-tmux-navigator.git
