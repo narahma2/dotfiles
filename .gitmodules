@@ -19,3 +19,21 @@
 [submodule "vim/pack/vendor/start/tmuxline.vim"]
 	path = vim/pack/vendor/start/tmuxline.vim
 	url = git@github.com:edkolev/tmuxline.vim.git
+[submodule "vim/pack/vendor/opt/vim-markdown"]
+	path = vim/pack/vendor/opt/vim-markdown
+	url = git@github.com:preservim/vim-markdown.git
+[submodule "vim/pack/vendor/opt/goyo"]
+	path = vim/pack/vendor/opt/goyo
+	url = git@github.com:junegunn/goyo.vim.git
+[submodule "vim/pack/vendor/opt/vim-wordy"]
+	path = vim/pack/vendor/opt/vim-wordy
+	url = git@github.com:preservim/vim-wordy.git
+[submodule "vim/pack/vendor/opt/vim-pencil"]
+	path = vim/pack/vendor/opt/vim-pencil
+	url = git@github.com:preservim/vim-pencil.git
+[submodule "vim/pack/vendor/opt/thesaurus_query"]
+	path = vim/pack/vendor/opt/thesaurus_query
+	url = git@github.com:Ron89/thesaurus_query.vim.git
+[submodule "vim/pack/vendor/opt/vim-LanguageTool"]
+	path = vim/pack/vendor/opt/vim-LanguageTool
+	url = git@github.com:dpelle/vim-LanguageTool.git
