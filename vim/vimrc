@@ -2,6 +2,8 @@
 set runtimepath=$DOTFILES/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$DOTFILES/vim/after
 set packpath=$DOTFILES/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$DOTFILES/vim/after
 
+set modeline
+
 """"""""
 " Colors
 """"""""
@@ -17,13 +19,21 @@ set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-" using iceberg theem
+" using iceberg theme
 colorscheme iceberg
 set background=dark
 
 """""""""
 " General
 """""""""
+" map the leader to comma
+let mapleader = ","
+
+" turn off the annoying audio bell
+" https://stackoverflow.com/a/36297082
+set noerrorbells
+set vb t_vb=
+
 " faster update (also means more *.swp file updates!)
 set updatetime=100
 
@@ -39,6 +49,24 @@ set incsearch
 
 set backspace=indent,eol,start
 set clipboard=exclude:.*
+
+""""""""
+" Python
+""""""""
+" vim-conda (CondaChangeEnv)
+packadd! vim-conda
+
+" jedi-vim
+" packadd! jedi
+
+" keybinds...
+" show completions: <C-Space>
+" show docstring: K
+" go to assignment: <Leader>g
+" go to definition: <Leader>d
+
+" turn off autocompletion (takes too long)
+" autocmd FileType python setlocal completeopt-=preview
 
 " PEP8
 au BufNewFile,BufRead *.py
@@ -88,16 +116,25 @@ let g:airline_skip_empty_sections = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPBuffer'
 
+" Persist cache file
+let g:ctrlp_clear_cache_on_exit = 0
+
 " working directory to search under:
 " c: the directory of the current file
 " r: the nearest ancestor that contains one of: .git .hg .svn .bzr _darcs
 " a: like c, but only if CWD outside of CtrlP is not a direct ancestor of the
 "    directory of the current file
-let g:ctrp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'ra'
 
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|ipynb_checkpoints)$',
+  \ 'dir':  '\v[\/]\.(hg|svn|ipynb_checkpoints)$',
   \ 'file': '\v\.(exe|so|dll|ipynb)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+
+"""""""""""""""""""""
+" Rainbow Parentheses
+"""""""""""""""""""""
+" Can be toggled with :RainbowToggle
+let g:rainbow_active = 1
