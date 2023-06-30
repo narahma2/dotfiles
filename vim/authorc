@@ -1,4 +1,119 @@
+" vim: set filetype=vim:
+
+" update paths
+set runtimepath=$DOTFILES/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$DOTFILES/vim/after
+set packpath=$DOTFILES/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$DOTFILES/vim/after
+
+" open this config file in a new split
+command! Authorc split $DOTFILES/vim/authorc
+
+" set the leader to space
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
+" add in the opt packages
+set nocompatible
+filetype plugin on
+packadd! goyo
+packadd! thesaurus_query
+packadd! vim-LanguageTool
+packadd! vim-markdown
+packadd! vim-pencil
+packadd! vim-wordy
+
+" helptags command for the opt directories
+command! -nargs=0 -bar Helptags
+    \  for p in glob('~/.vim/pack/vendor/opt/*', 1, 1)
+    \|     exe 'packadd ' . fnamemodify(p, ':t')
+    \| endfor
+    \| helptags ALL
+
+" Shortcut for showing why a word is highlighted
+nmap <F2> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+""""""""
+" Colors
+""""""""
+" command for background toggling
+command ToggleBG if &background=='light' | set background=dark | :AirlineTheme iceberg
+                 \ | else | set background=light | :AirlineTheme iceberg
+                 \ | endif
+
+" hi SpecialKey hard to see in iceberg...
+" enable true color (24-bit)
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" using iceberg theem
+colorscheme iceberg
+set background=dark
+
 syntax on
+set modeline
+
+""""""""""""""
+" Vim-Markdown
+""""""""""""""
+" Syntax extensions
+let g:vim_markdown_frontmatter = 1
+
+" Keybindings
+" ]] goes to next header
+" [[ goes to previous header
+" ][ goes to next sibling header
+" [] goes to previous sibling header
+" ]h goes to current header
+" ]u goes to parent header (up)
+
+""""""
+" Goyo
+""""""
+" Distraction-free writing
+" :Goyo toggles on/off
+
+"""""""
+" Wordy
+"""""""
+
+""""""""
+" Pencil
+""""""""
+
+"""""""""""
+" Thesaurus
+"""""""""""
+" <Leader>cs replaces the current word under the cursor
+
+" Shortcut for looking up synonym for the current word
+command! Synonym :ThesaurusQueryLookupCurrentWord
+
+""""""""""""""
+" LanguageTool
+""""""""""""""
+let g:languagetool_jar='$HOME/.languagetool/languagetool-commandline.jar'
+
+"""""""""""""
+" Spellcheck
+"""""""""""""
+" To turn off, :set nospell
+set spell spelllang=en_us
+set spellsuggest=fast,20
+set spellfile=$DOTFILES/vim/spell/en.utf-8.add
+
+" Add good word to dictionary: zg
+" Undo good word: zug
+" Add bad word to dictionary: zw
+" Undo bad word: zuw
+
+" Open dictionary
+command! Dictionary split $DOTFILES/vim/spell/en.utf-8.add
 
 set noerrorbells
 set textwidth=100
@@ -15,7 +130,6 @@ set noswapfile
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
-set spell
 set showmatch
 set confirm
 set ruler
